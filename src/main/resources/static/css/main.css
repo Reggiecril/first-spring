@@ -4,8 +4,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
-
 a, a:visited {
     color: inherit;
     text-decoration: none;
@@ -29,4 +27,32 @@ a:hover {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+}
+.full-height {
+    height: 100vh;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.position-ref {
+    position: relative;
+}
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.vertical-offset-100{
+    padding-top:100px;
 }

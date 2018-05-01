@@ -2,29 +2,35 @@ package com.reggie.guestbook.control;
 
 import com.reggie.guestbook.domain.GuestBookEntry;
 import com.reggie.guestbook.service.GuestBookService;
+import com.reggie.guestbook.service.ScheduledTasks;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+@RequestMapping("/user")
 @Controller
 public class GuestbookWebController {
 
     private static final String GUESTBOOK_TEMPLATE = "guestbook";
     private static final String ENTRIES_TEMPLATE_ID = "entries";
-    private static final String HOMEPAGE_REDIRECT = "redirect:/";
+    private static final String HOMEPAGE_REDIRECT = "redirect:/user/";
     private static final String NEW_ENTRY_TEMPLATE_ID = "newEntry";
     private static final String GUESTBOOK_FORM_HEADER_ID = "formHeader";
     @Autowired
     private GuestBookService guestBookService;
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
     @GetMapping ("/")
     public String displayGuestBook (Model model) {
+
         model.addAttribute (GUESTBOOK_FORM_HEADER_ID, "Add a New Comment");
         model.addAttribute (ENTRIES_TEMPLATE_ID, this.guestBookService.findAllEntries ());
         model.addAttribute (NEW_ENTRY_TEMPLATE_ID, new GuestBookEntry());
@@ -74,5 +80,6 @@ public class GuestbookWebController {
             return GUESTBOOK_TEMPLATE;
         }
     }
+
 
 }
