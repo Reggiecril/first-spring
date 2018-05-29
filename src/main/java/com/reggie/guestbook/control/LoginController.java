@@ -19,11 +19,11 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-//    @GetMapping("/")
-//    public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model) {
-//
-//        return "index";
-//    }
+    @GetMapping("/")
+    public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model) {
+
+        return "index";
+    }
 
     @GetMapping("/login")
     public String login() {
