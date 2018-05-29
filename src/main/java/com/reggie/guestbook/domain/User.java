@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="table_user")
@@ -18,9 +19,11 @@ public class User {
     private String userid;
 
     @Column(name = "username")
+    @NotEmpty
     private String username;
 
     @Column(name = "password")
+    @NotEmpty
     private String password;
 
     @Column(name = "userps")

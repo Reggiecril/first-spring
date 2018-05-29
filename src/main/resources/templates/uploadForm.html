@@ -16,7 +16,7 @@
 </div>
 
 
-<form method="POST" enctype="multipart/form-data" action="/">
+<form method="POST" enctype="multipart/form-data" th:action="@{/file/files}">
     <div class="form-group">
         <label for="exampleFormControlFile1">File to upload:</label>
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
